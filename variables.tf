@@ -37,6 +37,7 @@ variable "nodes" {
 
 variable "subnets" {
   description = "list of subnets to launch Vault within"
+  type        = "list"
 }
 
 variable "vpc_id" {

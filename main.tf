@@ -55,7 +55,7 @@ resource "aws_autoscaling_group" "vault" {
   desired_capacity          = "${var.nodes}"
   health_check_grace_period = 15
   health_check_type         = "EC2"
-  vpc_zone_identifier       = ["${split(",", var.subnets)}"]
+  vpc_zone_identifier       = ["${var.subnets}"]
   load_balancers            = ["${aws_elb.vault.id}"]
 
   tag {
@@ -118,7 +118,7 @@ resource "aws_elb" "vault" {
   connection_draining         = true
   connection_draining_timeout = 400
   internal                    = true
-  subnets                     = ["${split(",", var.subnets)}"]
+  subnets                     = ["${var.subnets}"]
   security_groups             = ["${aws_security_group.elb.id}"]
 
   listener {
