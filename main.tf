@@ -79,7 +79,7 @@ resource "aws_launch_configuration" "vault" {
 resource "aws_security_group" "vault" {
   name        = "${format("%s", var.name)}"
   description = "Vault servers"
-  vpc_id      = "${var.vpc-id}"
+  vpc_id      = "${var.vpc_id}"
 }
 
 resource "aws_security_group_rule" "vault-ssh" {
@@ -139,7 +139,7 @@ resource "aws_elb" "vault" {
     healthy_threshold   = 2
     unhealthy_threshold = 3
     timeout             = 5
-    target              = "${var.elb-health-check}"
+    target              = "${var.elb_health_check}"
     interval            = 15
   }
 }
@@ -147,7 +147,7 @@ resource "aws_elb" "vault" {
 resource "aws_security_group" "elb" {
   name        = "vault-elb"
   description = "Vault ELB"
-  vpc_id      = "${var.vpc-id}"
+  vpc_id      = "${var.vpc_id}"
 }
 
 resource "aws_security_group_rule" "vault-elb-http" {

@@ -15,7 +15,7 @@ variable "ami" {
   description = "AMI for Vault instances"
 }
 
-variable "elb-health-check" {
+variable "elb_health_check" {
   default     = "HTTP:8200/v1/sys/health"
   description = "Health check for Vault servers"
 }
@@ -39,7 +39,7 @@ variable "subnets" {
   description = "list of subnets to launch Vault within"
 }
 
-variable "vpc-id" {
+variable "vpc_id" {
   description = "VPC ID"
 }
 
