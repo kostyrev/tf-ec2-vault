@@ -23,11 +23,10 @@ write_files:
       {"datacenter": "$${datacenter}",
        "raft_protocol": 3,
        "data_dir":  "/var/lib/consul",
-       "retry_join_ec2": {
-         "region": "$${datacenter}",
+       "retry_join": [
          "tag_key": "$${ec2_tag_key}",
          "tag_value": "$${ec2_tag_value}"
-       },
+       ],
        "leave_on_terminate": true,
        "performance": {"raft_multiplier": 1}}
 
