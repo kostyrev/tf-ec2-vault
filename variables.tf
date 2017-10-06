@@ -69,3 +69,8 @@ variable "allowed_cidr" {
   default     = ["0.0.0.0/0"]
   description = "A list of CIDR Networks to allow ssh access to."
 }
+
+variable "ssh_key_name" {
+  description = "The name of an EC2 Key Pair that can be used to SSH to the EC2 Instances in this cluster. Set to an empty string to not associate a Key Pair."
+  default     = ""
+}
