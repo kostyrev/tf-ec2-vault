@@ -61,6 +61,10 @@ resource "aws_autoscaling_group" "vault" {
     value               = "${format("%s", var.name)}"
     propagate_at_launch = true
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_launch_configuration" "vault" {
@@ -71,6 +75,10 @@ resource "aws_launch_configuration" "vault" {
   iam_instance_profile = "${var.instance_profile}"
   security_groups      = ["${aws_security_group.vault.id}"]
   user_data            = "${data.template_file.vault.rendered}"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 // Security group for Vault allows SSH and HTTP access (via "tcp" in
