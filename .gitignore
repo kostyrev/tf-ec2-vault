@@ -1,0 +1,11 @@
+# Direnv
+**/.envrc
+
+# Compiled files
+**/*.tfstate
+**/*.tfstate.*.backup
+**/*.tfstate.backup
+**/plan.terraform
+
+# Module directory
+**/.terraform/
