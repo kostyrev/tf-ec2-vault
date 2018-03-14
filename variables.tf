@@ -16,7 +16,7 @@ variable "ami" {
 }
 
 variable "elb_health_check" {
-  default     = "HTTP:8200/v1/sys/health"
+  default     = "HTTP:8200/v1/sys/health?standbyok=true"
   description = "Health check for Vault servers"
 }
 
